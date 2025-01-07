@@ -12,7 +12,7 @@ services:
   - type: web
     name: removal-ia-server
     buildCommand: cd server && npm install
-    startCommand: cd server && node server.js
+    startCommand: cd server && nodemon server.js
     envVars:
       - key: MONGODB_URI
         value: mongodb+srv://RyadhLAM:20081997@cluster0.g19bi.mongodb.net 
