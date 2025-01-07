@@ -6,13 +6,16 @@ services:
     staticPublishPath: ./client/dist
     envVars:
       - key: VITE_CLERK_PUBLISHABLE_KEY
-        value: pk_test_aG9wZWZ1bC1iaXJkLTQzLmNsZXJrLmFjY291bnRzLmRldiQ
+        sync: false
 
   # Service pour le backend
   - type: web
     name: removal-ia-server
-    buildCommand: cd server && npm install
-    startCommand: cd server && node server.js
+    buildCommand: |
+      npm install
+      cd server
+      npm install
+    startCommand: node server/server.js
     envVars:
       - key: MONGODB_URI
-        value: mongodb+srv://RyadhLAM:20081997@cluster0.g19bi.mongodb.net 
+        sync: false 
