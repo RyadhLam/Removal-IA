@@ -1,0 +1,18 @@
+services:
+  # Service pour le frontend
+  - type: web
+    name: removal-ia-client
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/dist
+    envVars:
+      - key: VITE_CLERK_PUBLISHABLE_KEY
+        value: pk_test_aG9wZWZ1bC1iaXJkLTQzLmNsZXJrLmFjY291bnRzLmRldiQ
+
+  # Service pour le backend
+  - type: web
+    name: removal-ia-server
+    buildCommand: cd server && npm install
+    startCommand: cd server && node server.js
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://RyadhLAM:20081997@cluster0.g19bi.mongodb.net 

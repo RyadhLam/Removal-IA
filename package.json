@@ -1,0 +1,10 @@
+{
+  "name": "removal-ia",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build"
+  }
+} 
