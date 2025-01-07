@@ -24,7 +24,7 @@ export default defineConfig({
       }
     }
   },
-  base: './',
+  base: '/Removal-IA/',
   define: {
     'process.env': process.env
   }
