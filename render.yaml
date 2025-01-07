@@ -2,8 +2,11 @@ services:
   # Service pour le frontend
   - type: web
     name: removal-ia-client
-    buildCommand: cd client && npm install && npm run build
+    buildCommand: cd client && npm ci && npm run build
     staticPublishPath: ./client/dist
+    buildFilter:
+      paths:
+        - client/**
     envVars:
       - key: VITE_CLERK_PUBLISHABLE_KEY
         sync: false
@@ -11,9 +14,12 @@ services:
   # Service pour le backend
   - type: web
     name: removal-ia-server
-    buildCommand: cd server && npm install
+    buildCommand: cd server && npm ci
     startCommand: cd server && node server.js
     env: node
+    buildFilter:
+      paths:
+        - server/**
     envVars:
       - key: MONGODB_URI
         sync: false 
