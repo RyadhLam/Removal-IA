@@ -11,11 +11,9 @@ services:
   # Service pour le backend
   - type: web
     name: removal-ia-server
-    buildCommand: |
-      npm install
-      cd server
-      npm install
-    startCommand: node server/server.js
+    buildCommand: cd server && npm install
+    startCommand: cd server && node server.js
+    env: node
     envVars:
       - key: MONGODB_URI
         sync: false 
